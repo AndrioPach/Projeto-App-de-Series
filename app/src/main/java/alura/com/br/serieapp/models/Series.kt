@@ -1,12 +1,9 @@
 package alura.com.br.serieapp.models
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 @Entity(tableName = "Series")
 data class Series(
 
@@ -21,7 +18,5 @@ data class Series(
     val poster: String,
     @SerializedName("first_air_date")
     val release: String
-): Parcelable{
-    constructor():this("","","","","")
-}
+)
 

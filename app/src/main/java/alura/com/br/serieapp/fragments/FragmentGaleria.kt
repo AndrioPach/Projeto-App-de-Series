@@ -11,12 +11,11 @@ import android.widget.LinearLayout.VERTICAL
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_galeria.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class FragmentGaleria : Fragment() {
@@ -54,7 +53,7 @@ class FragmentGaleria : Fragment() {
     }
 
     private fun getSeries() {
-        viewModel.getMovie()
+        viewModel.getSerie()
         viewModel.mMovie.observe(this, { resposta ->
             if (resposta.isSuccessful) {
                 resposta.body()?.let { series ->
@@ -68,8 +67,7 @@ class FragmentGaleria : Fragment() {
     }
 
     private fun configuraRecyclerView() {
-        val divisor = DividerItemDecoration(context, VERTICAL)
-        galeria_recyclerView.addItemDecoration(divisor)
         galeria_recyclerView.adapter = adapter
+        galeria_recyclerView.layoutManager = LinearLayoutManager(context)
     }
 }

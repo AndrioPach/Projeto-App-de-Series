@@ -13,7 +13,7 @@ class SerieViewModel(private val repository: RepositorySeries): ViewModel() {
 
     val mMovie: MutableLiveData<Response<AppResponse>> = MutableLiveData()
 
-    fun getMovie(){
+    fun getSerie(){
         viewModelScope.launch {
             val response = repository.getSeries()
             mMovie.value = response

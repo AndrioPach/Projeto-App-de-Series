@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mb_navigation"
-    app:startDestination="@id/fragemnt_discover">
+    app:startDestination="@id/navigation_discover">
     <fragment
-        android:id="@+id/fragemnt_discover"
+        android:id="@+id/navigation_discover"
         android:name="alura.com.br.serieapp.fragments.FragmentGaleria"
         android:label="fragment_galeria"
         tools:layout="@layout/fragment_galeria" />
