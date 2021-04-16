@@ -1,22 +1,23 @@
-package alura.com.br.serieapp.ViewModel
+package alura.com.br.serieapp.ui.galeria
 
 import alura.com.br.serieapp.Services.AppResponse
+import alura.com.br.serieapp.models.Series
 import alura.com.br.serieapp.repository.RepositorySeries
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class SerieViewModel(private val repository: RepositorySeries): ViewModel() {
 
-    val mMovie: MutableLiveData<Response<AppResponse>> = MutableLiveData()
+    val mResponse: MutableLiveData<Response<AppResponse>> = MutableLiveData()
+
 
     fun getSerie(){
         viewModelScope.launch {
             val response = repository.getSeries()
-            mMovie.value = response
+            mResponse.value = response
         }
     }
+
 }

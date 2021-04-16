@@ -8,5 +8,5 @@ import kotlinx.android.parcel.Parcelize
 
 data class AppResponse(
     @SerializedName("results")
-    val series : List<Series>,
+    val series : List<Series>
 )

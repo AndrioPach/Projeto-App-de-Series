@@ -3,10 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mb_navigation"
-    app:startDestination="@id/navigation_discover">
+    app:startDestination="@+id/navigation_galeria">
     <fragment
-        android:id="@+id/navigation_discover"
-        android:name="alura.com.br.serieapp.fragments.FragmentGaleria"
+        android:id="@+id/detalhesFragment"
+        android:name="alura.com.br.serieapp.ui.detalhes.DetalhesFragment"
+        android:label="DetalhesFragment" >
+        <action
+            android:id="@+id/action_detalhesFragment_to_fragmentGaleria"
+            app:destination="@+id/navigation_galeria" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_galeria"
+        android:name="alura.com.br.serieapp.ui.galeria.FragmentGaleria"
         android:label="fragment_galeria"
-        tools:layout="@layout/fragment_galeria" />
+        tools:layout="@layout/fragment_galeria" >
+        <action
+            android:id="@+id/action_fragmentGaleria_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_mylist"
+        android:name="alura.com.br.serieapp.ui.mylist.MyListFragment"
+        android:label="fragment_my_list"
+        tools:layout="@layout/fragment_my_list" />
 </navigation>
