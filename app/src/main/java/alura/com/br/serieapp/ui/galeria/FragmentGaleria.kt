@@ -1,26 +1,25 @@
-package alura.com.br.serieapp.fragments
+package alura.com.br.serieapp.ui.galeria
 
 import alura.com.br.serieapp.MyApplication
 import alura.com.br.serieapp.R
-import alura.com.br.serieapp.ViewModel.SerieViewModel
-import alura.com.br.serieapp.ViewModel.SeriesViewModelFactory
 import alura.com.br.serieapp.adapter.SeriesAdapter
+import alura.com.br.serieapp.ui.detalhes.DetalhesFragment
+import alura.com.br.serieapp.models.Series
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout.VERTICAL
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_galeria.*
 
 
 class FragmentGaleria : Fragment() {
 
-    private val viewModel: SerieViewModel by viewModels{
+    private val viewModel: SerieViewModel by viewModels {
         SeriesViewModelFactory((activity?.application as MyApplication).repository)
     }
 
@@ -28,12 +27,13 @@ class FragmentGaleria : Fragment() {
         context?.let {
             SeriesAdapter(context = it)
         }
-    }
+      }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getSeries()
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,12 +49,23 @@ class FragmentGaleria : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configuraRecyclerView()
+    }
 
+    private fun configuraRecyclerView() {
+        adapter?.onItemClickListener = {
+            goToDeteils(it)
+        }
+        galeria_recyclerView.adapter = adapter
+        galeria_recyclerView.layoutManager = LinearLayoutManager(context)
+        adapter?.onSave = {
+            saveListInterna(it)
+            Toast.makeText(activity,"Salvo com Sucesso", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun getSeries() {
         viewModel.getSerie()
-        viewModel.mMovie.observe(this, { resposta ->
+        viewModel.mResponse.observe(this, { resposta ->
             if (resposta.isSuccessful) {
                 resposta.body()?.let { series ->
                     adapter?.add(series.series)
@@ -66,8 +77,16 @@ class FragmentGaleria : Fragment() {
         })
     }
 
-    private fun configuraRecyclerView() {
-        galeria_recyclerView.adapter = adapter
-        galeria_recyclerView.layoutManager = LinearLayoutManager(context)
+    private fun goToDeteils(series: Series) {
+        val details = DetalhesFragment(series)
+        val fragmentManager = activity?.supportFragmentManager
+        val transaction = fragmentManager?.beginTransaction()
+        transaction?.replace(R.id.fragment_galeria_container, details)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
+    }
+
+    private fun saveListInterna(series: Series){
+        viewModel.saveList(series)
     }
 }
