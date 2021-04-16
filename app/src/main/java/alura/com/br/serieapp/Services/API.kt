@@ -5,7 +5,6 @@ import alura.com.br.serieapp.models.SeriesDetalhes
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface API {
     @GET("tv/popular")
@@ -13,7 +12,4 @@ interface API {
 
     @GET("tv/{tv_id}")
     suspend fun getDetalhes(@Path("tv_id")id:Int): Response<SeriesDetalhes>
-
-    @GET("search/tv")
-    suspend fun getSearchSerie(@Query("query") keyword : String): Response<AppResponse>
 }

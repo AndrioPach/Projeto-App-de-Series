@@ -14,8 +14,7 @@ import kotlinx.android.synthetic.main.lista_layout.view.*
 
 class SeriesAdapter(private val context: Context,
                     private val serie: MutableList<Series> = mutableListOf(),
-                    var onItemClickListener: (series: Series) -> Unit = {},
-                    var onSave: (series: Series) -> Unit = {}
+                    var onItemClickListener: (series: Series) -> Unit = {}
 ):RecyclerView.Adapter<SeriesAdapter.SeriesViewHolder>() {
     private val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
 
@@ -45,20 +44,11 @@ class SeriesAdapter(private val context: Context,
         private val campoData by lazy { itemView.data_lancamento }
         private val campoVote by lazy {itemView.vote_average}
         private val campoRatingBar by lazy {itemView.rating_bar}
-        private val favbtn by lazy {itemView.favBtn}
 
         init {
             itemView.setOnClickListener {
                 if(::serie.isInitialized){
                     onItemClickListener(serie)
-                }
-            }
-        }
-
-        init {
-            favbtn.setOnClickListener() {
-                if (::serie.isInitialized) {
-                    onSave(serie)
                 }
             }
         }

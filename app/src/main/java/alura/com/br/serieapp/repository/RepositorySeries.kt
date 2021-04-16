@@ -16,7 +16,6 @@ class RepositorySeries (
     private val api: API = ApiService().seriesService
 ){
 
-
     val seriesListDB: Flow<List<Series>> = dao.findSeriesList()
 
     suspend fun getSeries(): Response<AppResponse>{
@@ -31,11 +30,8 @@ class RepositorySeries (
     }
 
     suspend fun saveList(series: Series) {
+        series.id
         dao.saveList(series)
-    }
-
-    suspend fun getSearchSeries(keyword: String): Response<AppResponse> {
-        return api.getSearchSerie(keyword)
     }
 
 

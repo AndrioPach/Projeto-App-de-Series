@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/navigation_galeria"
@@ -8,13 +7,7 @@
         android:title="Home"/>
 
     <item
-        android:id="@+id/pesquisa"
-        android:icon="@drawable/ic_action_search"
-        android:title="Pesquisa"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item
         android:id="@+id/navigation_mylist"
-        android:icon="@drawable/ic_action_favorite"
-        android:title="Favoritos"/>
+        android:icon="@drawable/ic_action_list"
+        android:title="Lista"/>
 </menu>

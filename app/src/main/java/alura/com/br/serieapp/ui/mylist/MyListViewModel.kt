@@ -12,10 +12,17 @@ class MyListViewModel(private val repository: RepositorySeries):ViewModel(){
 
     val seriesListDB: LiveData<List<Series>> = repository.seriesListDB.asLiveData()
 
-
+    fun saveList(series: Series) {
+        viewModelScope.launch {
+            repository.saveList(series)
+        }
+    }
     fun deleteList(series: Series){
         viewModelScope.launch {
             repository.deleteList(series)
         }
     }
+
+
+
 }

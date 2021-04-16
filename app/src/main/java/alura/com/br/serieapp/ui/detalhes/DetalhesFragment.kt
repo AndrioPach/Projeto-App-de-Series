@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_detalhes.*
 import retrofit2.Response
 
@@ -68,4 +69,6 @@ class DetalhesFragment(
             .transform(CenterCrop())
             .into(serie_detalhes_poster)
     }
+
+
 }
