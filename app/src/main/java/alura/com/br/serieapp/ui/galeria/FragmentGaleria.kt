@@ -1,5 +1,4 @@
 package alura.com.br.serieapp.ui.galeria
-
 import alura.com.br.serieapp.MyApplication
 import alura.com.br.serieapp.R
 import alura.com.br.serieapp.adapter.SeriesAdapter
@@ -10,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -56,6 +56,10 @@ class FragmentGaleria : Fragment() {
         }
         galeria_recyclerView.adapter = adapter
         galeria_recyclerView.layoutManager = LinearLayoutManager(context)
+        adapter?.onSave = {
+            saveListInterna(it)
+            Toast.makeText(activity,"Salvo com Sucesso", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun getSeries() {
@@ -79,5 +83,9 @@ class FragmentGaleria : Fragment() {
         transaction?.replace(R.id.fragment_galeria_container, details)
         transaction?.addToBackStack(null)
         transaction?.commit()
+    }
+
+    private fun saveListInterna(series: Series){
+        viewModel.saveList(series)
     }
 }

@@ -6,12 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.mylist.MyListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/MyList_recyclerview"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        tools:listitem="@layout/item_my_list">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MyList_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_my_list"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

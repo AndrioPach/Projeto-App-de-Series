@@ -1,5 +1,4 @@
 package alura.com.br.serieapp.adapter
-
 import alura.com.br.serieapp.R
 import alura.com.br.serieapp.models.Series
 import android.content.Context
