@@ -33,6 +33,8 @@ class RepositorySeries (
         series.id
         dao.saveList(series)
     }
-
+    suspend fun getSearchSeries(keyword: String): Response<AppResponse> {
+        return api.getSearchSerie(keyword)
+    }
 
 }

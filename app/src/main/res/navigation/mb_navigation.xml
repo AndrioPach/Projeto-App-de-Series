@@ -25,5 +25,18 @@
         android:id="@+id/navigation_mylist"
         android:name="alura.com.br.serieapp.ui.mylist.MyListFragment"
         android:label="fragment_my_list"
-        tools:layout="@layout/fragment_my_list" />
+        tools:layout="@layout/fragment_my_list" >
+        <action
+            android:id="@+id/action_navigation_mylist_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pesquisa"
+        android:name="alura.com.br.serieapp.ui.PesquisaFragment"
+        android:label="fragment_pesquisa"
+        tools:layout="@layout/fragment_pesquisa" >
+        <action
+            android:id="@+id/action_pesquisaFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
+    </fragment>
 </navigation>
