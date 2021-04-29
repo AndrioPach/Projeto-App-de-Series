@@ -1,5 +1,4 @@
 package alura.com.br.serieapp.ui.galeria
-
 import alura.com.br.serieapp.MyApplication
 import alura.com.br.serieapp.R
 import alura.com.br.serieapp.adapter.SeriesAdapter

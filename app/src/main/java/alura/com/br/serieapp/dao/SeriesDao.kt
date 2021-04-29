@@ -1,9 +1,11 @@
 package alura.com.br.serieapp.dao
 
 import alura.com.br.serieapp.models.Series
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 

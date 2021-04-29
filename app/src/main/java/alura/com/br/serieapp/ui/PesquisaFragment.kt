@@ -54,7 +54,7 @@ class PesquisaFragment : Fragment() {
         configAdapterRecyclerView()
 
         var job: Job? = null
-        pesquisa_filme.addTextChangedListener { editable ->
+        pesquisa_serie.addTextChangedListener { editable ->
             job?.cancel()
             job = MainScope().launch {
                 delay(PESQUISA_DELAY)

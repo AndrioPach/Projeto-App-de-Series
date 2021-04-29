@@ -4,10 +4,9 @@ import alura.com.br.serieapp.Services.AppResponse
 import alura.com.br.serieapp.models.Series
 import alura.com.br.serieapp.repository.RepositorySeries
 import alura.com.br.serieapp.ui.Resource
+import androidx.lifecycle.*
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import retrofit2.Response
 
 class SerieViewModel(private val repository: RepositorySeries): ViewModel() {
@@ -39,7 +38,7 @@ class SerieViewModel(private val repository: RepositorySeries): ViewModel() {
     }
 
 
-    // Obtem os filmes através da pesquisa
+    // Obtem os filmes atravÃ©s da pesquisa
     private fun searchSerieResponse(response: Response<AppResponse>): Resource<AppResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
@@ -51,5 +50,4 @@ class SerieViewModel(private val repository: RepositorySeries): ViewModel() {
         }
         return Resource.Error(response.message())
     }
-
 }

@@ -6,7 +6,7 @@
     <string name="title_mylist">My List</string>
     <string name="serie_details_synopsis">Synopsis:</string>
     <string name="serie_poster">Anime Poster</string>
-    <string name="anitime_slogan">Anime anytime</string>
-    <string name="complete_title">Complete</string>
     <string name="overview_detalhes">Overview</string>
+    <string name="abrir">Abrir</string>
+    <string name="fechar">Fechar</string>
 </resources>
