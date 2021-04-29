@@ -6,14 +6,13 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "Series")
 data class Series(
-
     @PrimaryKey(autoGenerate = false)
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("name")
     val name: String,
     @SerializedName("vote_average")
-    val vote: String,
+    val vote: Float,
     @SerializedName("poster_path")
     val poster: String,
     @SerializedName("first_air_date")
