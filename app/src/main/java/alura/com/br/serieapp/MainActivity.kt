@@ -1,18 +1,13 @@
 package alura.com.br.serieapp
 
-import alura.com.br.serieapp.adapter.MyListAdapter
-import alura.com.br.serieapp.ui.mylist.MyListViewModel
-import alura.com.br.serieapp.ui.mylist.MyListViewModelFactory
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import androidx.activity.viewModels
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,12 +47,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         menu_lateral_view.setNavigationItemSelectedListener {
-            when(it.itemId) {
-//                R.id.favorito_menu_lateral-> abrirFavoritos()
+            when (it.itemId) {
                 R.id.camera_menu_lateral -> abrirCamera()
-//                R.id.galeria_menu_lateral -> abrirGaleria()
-//                R.id.config_menu_lateral -> abrirConfiguracao()
-//                R.id.mapa_menu_lateral -> abrirMapa()
+                R.id.mapa_menu_lateral -> {
+                    val intent = Intent(this, MapsActivity::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }

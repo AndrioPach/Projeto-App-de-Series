@@ -5,10 +5,10 @@
         android:id="@+id/grupo1"
         android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/favorito_menu_lateral"
-            android:icon="@drawable/ic_action_favorite"
-            android:title="Favoritos"/>
+<!--        <item-->
+<!--            android:id="@+id/favorito_menu_lateral"-->
+<!--            android:icon="@drawable/ic_action_favorite"-->
+<!--            android:title="Favoritos"/>-->
         <item
             android:id="@+id/camera_menu_lateral"
             android:icon="@drawable/ic_action_camera"
