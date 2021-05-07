@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.login.CadastroActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_login"
@@ -26,7 +26,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Login"
+                android:text="Cadastro"
                 android:textSize="25sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +38,7 @@
                 android:hint="Email">
 
                 <EditText
-                    android:id="@+id/login_email"
+                    android:id="@+id/cadastro_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white" />
@@ -53,34 +53,23 @@
                 android:hint="Senha">
 
                 <EditText
-                    android:id="@+id/login_senha"
+                    android:id="@+id/cadastro_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:backgroundTint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/login_esqueci_senha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:gravity="end"
-                android:text="Esqueceu a senha?"
-                android:textColor="#3F51B5" />
-
             <Button
-                android:id="@+id/btn_Entrar"
+                android:id="@+id/btn_Cadastrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
-                android:textColor="@color/white"
                 android:backgroundTint="#2437A4"
-                android:text="ENTRAR" />
+                android:text="REGISTRAR"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -106,8 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OU"
-            android:textStyle="bold"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -117,7 +106,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/logo_app"
+        android:id="@+id/logo_app_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -127,51 +116,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_maior" />
 
-    <ImageView
-        android:id="@+id/logo_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/login_facebook"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/fb" />
 
-    <ImageView
-        android:id="@+id/logo_google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/login_google"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_facebook"
-        app:srcCompat="@drawable/g" />
-
-    <TextView
-        android:id="@+id/login_facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="16dp"
-        android:text="Entrar com Facebook"
-        android:textColor="#3F51B5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <TextView
-        android:id="@+id/login_google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="28dp"
-        android:text="Entrar com Google"
-        android:textColor="#3F51B5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_facebook" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -185,23 +130,25 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="28dp"
-        android:text="Ainda não tem uma conta?"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="Ja tem uma conta?"
+        app:layout_constraintEnd_toStartOf="@+id/entrar_cadastro"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_google" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/criar_conta"
+        android:id="@+id/entrar_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Criar conta"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="120dp"
+        android:text="Entrar"
         android:textColor="#2437A4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/login_google" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

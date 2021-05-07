@@ -22,31 +22,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
 
-        btnEntrar.setOnClickListener {
+        btn_Entrar.setOnClickListener {
             signIn()
         }
-    }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            reload()
-        }
-    }
-
-    private fun criaConta(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                Log.d(TAG, "createUserWithEmail: success")
-                val user = auth.currentUser
-                updateUI(user)
-            } else {
-                Log.w(TAG, "createUserWithEamil:failure", task.exception)
-                Toast.makeText(baseContext, "Authentication failed", Toast.LENGTH_SHORT).show()
-                updateUI(null)
-
-            }
+        criar_conta.setOnClickListener {
+            startActivity(Intent(this,CadastroActivity::class.java))
+            finish()
         }
     }
 
@@ -83,10 +65,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendEmailVerification() {
-        val user = auth.currentUser!!
-        user.sendEmailVerification().addOnCompleteListener(this) { task ->
-
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            reload()
         }
     }
 
@@ -104,6 +87,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun reload() {
 
