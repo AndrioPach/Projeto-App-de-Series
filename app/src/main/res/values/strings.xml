@@ -18,4 +18,13 @@
     <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
     <string name="dropped_pin">Dropped Pin</string>
     <string name="poi">poi</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

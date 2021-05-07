@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "303162939463",
+    "project_id": "serieapp-16b2c",
+    "storage_bucket": "serieapp-16b2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303162939463:android:c5010c7a15636e2f0ff962",
+        "android_client_info": {
+          "package_name": "alura.com.br.serieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303162939463-mvl0m35250b0op6hjr99u4qms1a9an55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASdlM7q9Nxk7Ju8_kArZEmYJzdiaXksX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303162939463-mvl0m35250b0op6hjr99u4qms1a9an55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

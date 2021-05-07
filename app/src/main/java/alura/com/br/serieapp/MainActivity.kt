@@ -1,16 +1,20 @@
 package alura.com.br.serieapp
 
+import alura.com.br.serieapp.ui.login.LoginActivity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_layout.*
 import java.io.File
 import java.io.IOException
@@ -21,12 +25,15 @@ const val TAKE_PICTURE = 1
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var toggle: ActionBarDrawerToggle
     var currentPath: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_layout)
+
+        auth = FirebaseAuth.getInstance()
 
         setupNavController()
         configDrawable()
@@ -53,10 +60,26 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, MapsActivity::class.java)
                     startActivity(intent)
                 }
+                R.id.sair_menu_lateral -> desconectar()
             }
             true
         }
 
+    }
+
+    override fun onBackPressed() {
+        if (container_drawer.isDrawerOpen(GravityCompat.START)) {
+            container_drawer.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun abrirCamera() {
@@ -74,6 +97,12 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(intent, TAKE_PICTURE)
             }
         }
+    }
+
+    private fun desconectar() {
+        auth.signOut()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 
     private fun criaImagem(): File {
