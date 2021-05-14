@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -16,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_layout.*
+import kotlinx.android.synthetic.main.header_menu_lateral.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
         setupNavController()
         configDrawable()
     }
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         menu_lateral_view.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.camera_menu_lateral -> abrirCamera()
@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity() {
         auth.signOut()
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun criaImagem(): File {

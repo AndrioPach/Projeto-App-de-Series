@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
-
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -44,13 +44,21 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
+    //google maps e login
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+
     implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.4.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+
 
     def lifecycle_version = "2.3.1"
     def nav_version = "2.3.5"
@@ -89,6 +97,9 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp-bom:4.9.0"
     implementation "com.squareup.okhttp3:okhttp"
     implementation "com.squareup.okhttp3:logging-interceptor"
+
+    //facebook login
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
 
     testImplementation 'junit:junit:4.13.2'
