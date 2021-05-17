@@ -12,9 +12,11 @@ import androidx.core.content.FileProvider
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.facebook.login.LoginManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_layout.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.header_menu_lateral.*
 import java.io.File
 import java.io.IOException
@@ -101,6 +103,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun desconectar() {
         auth.signOut()
+        LoginManager.getInstance().logOut()
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()

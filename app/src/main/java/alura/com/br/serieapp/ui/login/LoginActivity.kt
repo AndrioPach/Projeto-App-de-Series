@@ -65,8 +65,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signInFacebook() {
-
-
         login_facebook.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
                 Log.d(TAG_FACEBOOK, "facebook:onSuccess:$loginResult")
@@ -94,8 +92,7 @@ class LoginActivity : AppCompatActivity() {
                     val account = credential.signInMethod
                     Log.d(TAG_FACEBOOK, "signInWithCredential:success")
                     FacebookAuthProvider.getCredential(account)
-//                    val user = auth.currentUser
-//                    updateUI(user)
+                    startActivity(Intent(this,MainActivity::class.java))
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG_FACEBOOK, "signInWithCredential:failure", task.exception)
